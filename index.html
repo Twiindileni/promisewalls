@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Promise Walls — Photo Frames</title>
+    <meta name="description" content="Promise Walls — Beautiful custom photo frames. Download our latest catalogue.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #ffffff;
+            --muted: rgba(255,255,255,.8);
+            --accent: #f0b429; /* warm gold */
+            --accent-strong: #d89b0e;
+            --overlay: rgba(0,0,0,.45);
+            --shadow: 0 10px 30px rgba(0,0,0,.35);
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            color: var(--text);
+            background: #000; /* fallback while image loads */
+            /* Try common extensions for your 'foto' image */
+            background-image:
+                url('foto.jfif'),
+                url('foto.JFIF'),
+                url('foto.jpg'),
+                url('foto.JPG'),
+                url('foto.jpeg'),
+                url('foto.png'),
+                url('foto.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            /* Gold tint + subtle dark overlay for readability */
+            background: 
+                linear-gradient(0deg, rgba(240,180,41,.28), rgba(240,180,41,.28)),
+                linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.45));
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh; /* fallback */
+            min-height: 100svh; /* better fit on mobile viewports */
+            display: grid;
+            place-items: center;
+            padding: 24px;
+        }
+
+        .card {
+            text-align: center;
+            padding: 48px 40px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            background: rgba(0,0,0,.35);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 760px;
+            width: 100%;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: clamp(28px, 5vw, 56px);
+            line-height: 1.05;
+            letter-spacing: .5px;
+            margin: 0 0 10px 0;
+        }
+
+        .tagline {
+            font-weight: 300;
+            font-size: clamp(14px, 2.8vw, 20px);
+            color: var(--muted);
+            margin: 0 0 28px 0;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 22px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #1b1506;
+            background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(240,180,41,.3), inset 0 1px 0 rgba(255,255,255,.35);
+            text-decoration: none;
+            transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+            will-change: transform;
+        }
+
+        .cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 28px rgba(240,180,41,.38), inset 0 1px 0 rgba(255,255,255,.45);
+            filter: brightness(1.02);
+        }
+
+        .cta:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 16px rgba(240,180,41,.28), inset 0 1px 0 rgba(255,255,255,.25);
+        }
+
+        .note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: rgba(255,255,255,.7);
+        }
+
+        /* Small phones */
+        @media (max-width: 360px) {
+            .card {
+                padding: 26px 18px;
+                border-radius: 14px;
+            }
+            .brand {
+                font-size: 24px; /* tighter for extra-small devices */
+            }
+            .cta {
+                padding: 12px 18px;
+                font-size: 15px;
+            }
+        }
+
+        /* Phones */
+        @media (max-width: 480px) {
+            .card {
+                padding: 32px 22px;
+                border-radius: 16px;
+            }
+        }
+
+        /* Tablets */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .card {
+                max-width: 840px;
+                padding: 56px 56px;
+            }
+            .cta {
+                padding: 16px 26px;
+                font-size: 17px;
+            }
+        }
+
+        /* Large desktops */
+        @media (min-width: 1200px) {
+            .card {
+                max-width: 960px;
+                padding: 64px 64px;
+            }
+            .cta {
+                padding: 18px 28px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" aria-hidden="true"></div>
+    <main class="container">
+        <section class="card" role="region" aria-label="Promise Walls Download">
+            <h1 class="brand">Promise Walls</h1>
+            <p class="tagline">Elegant, handcrafted photo frames — made with love.</p>
+            <a class="cta" href="https://www.mediafire.com/file/kxm425fbc22yk3w/15_Octcomp.zip/file" target="_blank" rel="noopener noreferrer" aria-label="Download catalogue on MediaFire">
+                <!-- Simple download icon (SVG) -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 3v10m0 0l4-4m-4 4l-4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="#1b1506" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download Catalogue (ZIP)
+            </a>
+            <div class="note">Opens MediaFire in a new tab</div>
+        </section>
+    </main>
+</body>
+</html>
+
+
